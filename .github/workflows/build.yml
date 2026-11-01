@@ -13,6 +13,9 @@ jobs:
       - name: فك الضغط
         run: unzip -q NexoraX.zip
 
+      - name: إصلاح اسم compose bom
+        run: sed -i 's/name = "bom"/name = "compose-bom"/' NexoraX/gradle/libs.versions.toml
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
