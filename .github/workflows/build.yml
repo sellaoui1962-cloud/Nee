@@ -16,6 +16,11 @@ jobs:
       - name: إصلاح اسم compose bom
         run: sed -i 's/name = "bom"/name = "compose-bom"/' NexoraX/gradle/libs.versions.toml
 
+      - name: إصلاح Screens2.kt
+        run: |
+          F=NexoraX/app/src/main/java/com/nexora/x/ui/Screens2.kt
+          sed -i '156s/report.actions.joinToString {/report.actions.map {/; 156s/" })$/" }.joinToString())/' $F
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
